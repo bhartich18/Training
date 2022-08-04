@@ -1,0 +1,18 @@
+package com.globallogic.training.sorting;
+
+public class Sorting {
+	public static void main(String[] args) {
+		int[] a = {1,4,3,5,3,6,7,34,74,2,5};
+//		Sort insertionSorting = new InsertionSort(a);
+//		insertionSorting.sortArray();
+//		insertionSorting.display();
+		Sort selectionSorting = new Selection(a);
+		selectionSorting.display();
+		selectionSorting.sortArray();
+		selectionSorting.display();
+		Sort insertionSorting = new InsertionSort(a);
+		insertionSorting.display();
+		
+		
+	}
+}

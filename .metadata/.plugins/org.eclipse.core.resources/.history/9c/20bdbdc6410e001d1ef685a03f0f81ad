@@ -1,0 +1,5 @@
+package com.globallogic.training.sorting;
+
+public class InsertionSort {
+
+}

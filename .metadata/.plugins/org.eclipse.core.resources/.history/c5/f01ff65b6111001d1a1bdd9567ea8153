@@ -1,0 +1,6 @@
+package com.globallogic.helloweb;
+import javax.servlet.*;
+public class HomeController extends HttpServlet{
+
+	
+}

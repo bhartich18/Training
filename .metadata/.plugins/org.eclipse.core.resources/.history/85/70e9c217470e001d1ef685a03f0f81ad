@@ -1,0 +1,21 @@
+package com.globallogic.training.sorting;
+
+public class Bubble extends Sort {
+
+	Bubble(int[] a) {
+		super(a);
+	}
+
+	@Override
+	public void sortArray() {
+		int lastIndex=a.length-1;
+		for(int i=0;i<lastIndex;i++)
+			for(int j=i+1 ; i<lastIndex-i;j++)
+				if(a[j]<a[j-1]) {
+					int temp =a[j];
+					a[j]=a[j-1];
+					a[j-1]=temp;
+				}
+	}
+
+}

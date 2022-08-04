@@ -1,0 +1,24 @@
+package com.globallogic.training.stream;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class Java8 {
+	public static void main(String[] args) {
+		List<Integer> list = new ArrayList<>();
+		list.add(18);
+		list.add(-23);
+		list.add(5);
+		list.add(13);
+		list.add(-2);
+		Consumer<List<Integer>> absConsumer = l -> {
+			int i=0;
+			while(i<l.size()) l.set(i,Math.abs(l.get(i++)));
+		};
+		Consumer<Integer> printConsumer = a -> System.out.println(a);
+		Consumer<List<Integer>> printConsumerList = l -> l.stream()
+											.forEach(printConsumer);
+		absConsumer.andThen(printConsumerList).accept(list);
+	}
+}

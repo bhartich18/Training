@@ -1,0 +1,14 @@
+package com.globallogic.training.sorting;
+
+public class Quick extends Sort {
+
+	Quick(int[] a) {
+		super(a);
+	}
+
+	@Override
+	public void sortArray() {
+		
+	}
+
+}

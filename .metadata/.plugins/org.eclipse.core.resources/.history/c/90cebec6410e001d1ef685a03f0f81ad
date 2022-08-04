@@ -1,0 +1,14 @@
+package com.globallogic.training.sorting;
+
+abstract class Sort {
+	int a[];
+	Sort(int[] a){
+		this.a=a;
+	}
+	public abstract void sort();
+	public void display() {
+		for(int e: this.a)
+			System.out.print(e+" ");
+		System.out.println();
+	}
+}

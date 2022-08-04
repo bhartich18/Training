@@ -1,0 +1,40 @@
+package com.globallogic.training.lambda;
+@FunctionalInterface
+interface Greater{
+	int greater(int a, int b);
+}
+@FunctionalInterface
+interface Smaller{
+	int smaller(int a, int b);
+}
+@FunctionalInterface
+interface OddOrEven{
+	String oddOrEven(int a);
+}
+@FunctionalInterface
+interface Print{
+	void print(String s);
+}
+@FunctionalInterface
+interface SumOfNaturalNumbers{
+	int sumOfNaturalNumbers(int a);
+}
+
+public class Lambda {
+	public static void main(String[] args) {
+		Greater greater = (a,b) -> a>b?a:b;
+		Smaller smaller = (a,b) -> a<b?a:b;
+		OddOrEven oddOrEven = (a) -> a%2==0?"Even":"Odd";
+		Print print = (s) ->System.out.println(s);
+		SumOfNaturalNumbers sumOfNaturalNumbers = (n) -> {
+			int sum=0;
+			while(n-->0) sum+=n;
+			return sum;
+		};
+		System.out.println("Odd or Even: "+oddOrEven.oddOrEven(57));
+		System.out.println("Greater: "+greater.greater(10,57));
+		System.out.println("Smaller: "+smaller.smaller(10,57));
+		print.print("Hello World");
+		System.out.println("Sum of 100: "+sumOfNaturalNumbers.sumOfNaturalNumbers(100));
+	}
+}
