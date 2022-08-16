@@ -1,10 +1,10 @@
-package com.globallogic.SuperAdmin.superadmin;
+package com.globallogic.springboot.assessment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SuperadminApplicationTests {
+class AssessmentApplicationTests {
 
 	@Test
 	void contextLoads() {
