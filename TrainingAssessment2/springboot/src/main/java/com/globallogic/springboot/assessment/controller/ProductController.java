@@ -34,56 +34,50 @@ public class ProductController {
 	@GetMapping("/")
 	public List<ProductEntity> showDetails() {
 
-		return ProductRepo.findAll();
+		return repo.findAll();
 	}
 
 	// use the GET All the data
-	@GetMapping("/prodList/{id}")
-	public List<String> showProductByCategoryId(@PathVariable("id") int id) {
+	@GetMapping("/prodList/{name}")
+	public List<ProductEntity> showProductByCategoryId(@PathVariable("name") String name) {
 
-		List<ProductEntity> prod = ProductRepo.findAll();
+		List<ProductEntity> prod = repo.findAll();
 		System.out.println(prod);
 
-		List<ProductEntity> prodName = prod.stream().filter(e -> (e.getCategory().getId()) == id)
+		List<ProductEntity> prodName = prod.stream().filter(e -> e.getCategory().getName().equalsIgnoreCase(name))
 				.collect(Collectors.toList());
 
 		System.out.println(prodName);
-		List<String> name = new ArrayList<>();
-		for (ProductEntity pro : prodName) {
-			name.add(pro.getName());
-		}
-		return name;
+		
+		return prodName;
 
 	}
 
 	@GetMapping("/prod/{name}")
-	public List<String> showProductByCategoryName(@PathVariable("name") String cName) {
+	public List<ProductEntity> showProductByCategoryName(@PathVariable("name") String cName) {
 
-		List<ProductEntity> prod = ProductRepo.findAll();
+		List<ProductEntity> prod = repo.findAll();
 		System.out.println(prod);
 
 		List<ProductEntity> prodName = prod.stream().filter(e -> (e.getCategory().getName()).equalsIgnoreCase(cName))
 				.collect(Collectors.toList());
 
 		System.out.println(prodName);
-		List<String> name = new ArrayList<>();
-		for (ProductEntity pro : prodName) {
-			name.add(pro.getName());
-		}
-		return name;
+		return prodName;
+		
 	}
 
 	@PostMapping("/")
 	public List<ProductEntity> addDetails(@RequestBody ProductEntity prod) {
 
-		ProductRepo.save(prod);
-		return ProductRepo.findAll();
+		repo.save(prod);
+		return repo.findAll();
 	}
 
 	@PutMapping("/")
 	public List<ProductEntity> updateDetails(@RequestBody ProductEntity prod) {
-		ProductRepo.save(prod);
-		return ProductRepo.findAll();
+		repo.save(prod);
+		return repo.findAll();
 	}
 
 	// delete : it is used to delete the resource on the server

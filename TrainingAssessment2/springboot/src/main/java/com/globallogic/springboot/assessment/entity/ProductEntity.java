@@ -19,7 +19,7 @@ public class ProductEntity {
 		
 	}
 
-	public ProductEntity(int id, CategoryEntity name, String color, int price) {
+	public ProductEntity(int id, String name, String color, int price) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -40,11 +40,11 @@ public class ProductEntity {
 		this.id = id;
 	}
 
-	public CategoryEntity getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(CategoryEntity name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -63,13 +63,31 @@ public class ProductEntity {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+
+	public CategoryEntity getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryEntity category) {
+		this.category = category;
+	}
+
+	public MerchantEntity getMerchant() {
+		return merchant;
+	}
+
+	public void setMerchant(MerchantEntity merchant) {
+		this.merchant = merchant;
+	}
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 	
-	@OneToOne()
-    CategoryEntity name;
+	@Column
+    String name;
 	
 	@Column
 	String color;
@@ -77,10 +95,10 @@ public class ProductEntity {
 	@Column
 	int price;
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
 	CategoryEntity category;
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
 	MerchantEntity merchant;
 
 }

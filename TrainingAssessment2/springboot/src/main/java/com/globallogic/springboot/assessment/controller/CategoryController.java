@@ -41,11 +41,11 @@ public class CategoryController {
 		return catRepo.findAll();
 	}
 	
-	@DeleteMapping("/{id}")
-    public List<CategoryEntity> deleteDept(@PathVariable("id") int id){
-		
-		catRepo.deleteById(id);
-		return catRepo.findAll();
-	}
+//	@DeleteMapping("/{id}")
+//    public List<CategoryEntity> deleteDept(@PathVariable("id") int id){
+//		
+//		catRepo.deleteById(id);
+//		return catRepo.findAll();
+//	}
 
 }

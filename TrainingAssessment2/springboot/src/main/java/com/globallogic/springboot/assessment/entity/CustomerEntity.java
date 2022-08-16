@@ -1,6 +1,9 @@
 package com.globallogic.springboot.assessment.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -37,6 +40,10 @@ public class CustomerEntity {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 
 	@Column
 	String name;
