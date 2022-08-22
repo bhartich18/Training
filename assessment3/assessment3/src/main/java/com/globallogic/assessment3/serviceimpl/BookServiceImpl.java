@@ -15,28 +15,28 @@ import com.globallogic.assessment3.repository.BookRepo;
 @Component
 public class BookServiceImpl  implements BookService {
 @Autowired
-BookRepo br;
+BookRepo bookrepo;
 	@Override
-	public String addbook(Book bk) {
+	public String add(Book book) {
 		
-		br.save(bk);
+		bookrepo.save(book);
 		return "Data added successfully";
 	}
 @Override
 	public List<Book> display() {
 		
-		return br.findAll();
+		return bookrepo.findAll();
 		}
 @Override
-public String update(Book s) {
+public String update(Book book) {
 
-	br.save(s);
+	bookrepo.save(book);
 	return "Data Updated";
 }
 @Override
 public String delete(long id) {
 
-	br.deleteById(id);
+	bookrepo.deleteById(id);
 	return "Data deleted";
 }
 }

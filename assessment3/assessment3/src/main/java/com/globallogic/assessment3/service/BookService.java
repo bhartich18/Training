@@ -13,9 +13,9 @@ import com.globallogic.assessment3.entity.Book;
 @Component
 public interface BookService {
 
-public String addbook(Book bk);
+public String add(Book book);
 public List<Book>display();
-public String update(Book s);
+public String update(Book book);
 public String delete(long id);
 
 }

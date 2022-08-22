@@ -3,6 +3,7 @@ package com.globallogic.assessment3.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,27 +12,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.globallogic.assessment3.entity.Book;
-import com.globallogic.assessment3.service.BookService;
+
 
 @RestController
-@RequestMapping("/book")
-public class BookController {
+@RequestMapping("/signin")
+public class SignUpController {
 	@Autowired
-	BookService bookservice;
+	SignUpServive service;
 
 	@GetMapping("/")
-	public List<Book> displaybook() {
-		return bookservice.display();
+	public List<Signup> details() {
+		return service.showdet();
 	}
 
 	@PostMapping("/")
-	public String add(@RequestBody Book book) {
-		return bookservice.add(book);
+	public String adddetails(@RequestBody Signup s) {
+		return service.signin(s);
 	}
 
-	@PutMapping("/{id}")
-	public void editbook(@PathVariable("id") long id) {
+	@PutMapping("/")
+	public String updatedetails(@RequestBody Signup s) {
+		return service.update(s);
+	}
 
+	@DeleteMapping("/{id}")
+
+	public String deletedetails(@PathVariable("id") long id) {
+		return service.delete(id);
 	}
 }

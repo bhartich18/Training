@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.globallogic.assessment3.entity.User;
 import com.globallogic.assessment3.service.UserService;
 
 
@@ -37,7 +38,7 @@ public List<User> details() {
 
 @PostMapping("/")
 public String adddetails(@RequestBody User s) {
-	return service.use(s);
+	return service.user(s);
 }
 
 @PutMapping("/")
