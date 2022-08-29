@@ -23,7 +23,7 @@ public class HomeContoller {
 	DeptRepo deptRepo;
 	
 	//use the GET All the data 
-	@GetMapping()
+	@GetMapping("/")
 	public List<EmployeeEntity> showEmpoyee()
 	{
 		//return all the value from the tables
@@ -34,7 +34,7 @@ public class HomeContoller {
 	//POST request
 	   //each time it will create a new data request
 	   //will send the data with body
-	@PostMapping()
+	@PostMapping("/")
 	public EmployeeEntity saveEmployee(@RequestBody EmployeeEntity  emp)
 	{
 		System.out.println("dept  "+emp.getDept());
@@ -52,7 +52,7 @@ public class HomeContoller {
 	
 	//it is use to update the resource on the server
 	
-	@PutMapping()
+	@PutMapping("/")
 	public EmployeeEntity updateEmployee(@RequestBody EmployeeEntity  emp)
 	{
 	
